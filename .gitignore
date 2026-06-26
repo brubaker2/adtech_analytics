@@ -10,3 +10,4 @@ profiles.yml
 
 # large / binary seed artifacts
 seeds/*.sqlite
+dbt_internal_packages/
