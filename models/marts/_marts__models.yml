@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_campaigns
+    description: "Campaign dimension."
+    columns:
+      - name: campaign_id
+        data_tests: [unique, not_null]
+
+  - name: dim_ads
+    description: "Ad dimension, enriched with campaign name."
+    columns:
+      - name: ad_id
+        data_tests: [unique, not_null]
+
+  - name: dim_users
+    description: "User dimension."
+    columns:
+      - name: user_id
+        data_tests: [unique, not_null]
+
+  - name: fct_ad_events
+    description: "Event fact, one row per ad interaction."
+    columns:
+      - name: event_id
+        data_tests: [unique, not_null]
+
+  - name: fct_ad_performance
+    description: "Ad-level performance with CTR and engagement rate."
+    columns:
+      - name: ad_id
+        data_tests: [unique, not_null]

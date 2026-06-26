@@ -1,0 +1,12 @@
+target/
+dbt_packages/
+logs/
+venv/
+.user.yml
+
+# never commit credentials
+profiles.yml
+**/kaggle.json
+
+# large / binary seed artifacts
+seeds/*.sqlite

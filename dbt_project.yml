@@ -1,0 +1,47 @@
+name: 'adtech_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'adtech_analytics'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  adtech_analytics:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
+
+seeds:
+  adtech_analytics:
+    +schema: raw
+    ads:
+      +column_types:
+        ad_id: INT64
+        campaign_id: INT64
+    campaigns:
+      +column_types:
+        campaign_id: INT64
+        start_date: DATE
+        end_date: DATE
+        duration_days: INT64
+        total_budget: FLOAT64
+    users:
+      +column_types:
+        user_age: INT64
+    ad_events:
+      +column_types:
+        event_id: INT64
+        ad_id: INT64
+        timestamp: TIMESTAMP

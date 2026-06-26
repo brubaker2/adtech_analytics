@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: stg_adtech__campaigns
+    description: "One row per campaign."
+    columns:
+      - name: campaign_id
+        description: "Primary key."
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_adtech__ads
+    description: "One row per ad. Each ad belongs to a campaign."
+    columns:
+      - name: ad_id
+        description: "Primary key."
+        data_tests:
+          - unique
+          - not_null
+      - name: campaign_id
+        description: "FK to campaigns."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_adtech__campaigns')
+                field: campaign_id
+      - name: ad_platform
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["Facebook", "Instagram", "TikTok", "Google"]
+
+  - name: stg_adtech__users
+    description: "One row per user."
+    columns:
+      - name: user_id
+        description: "Primary key."
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_adtech__ad_events
+    description: "One row per ad interaction event. Fact grain."
+    columns:
+      - name: event_id
+        description: "Primary key."
+        data_tests:
+          - unique
+          - not_null
+      - name: ad_id
+        description: "FK to ads."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_adtech__ads')
+                field: ad_id
+      - name: event_type
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["Impression", "Click", "Like", "Share","Comment","Purchase"]
