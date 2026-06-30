@@ -1,0 +1,14 @@
+version: 2
+
+seeds:
+  - name: campaigns
+    description: "Advertising campaigns, including campaign-level attributes and metadata. Source: Social Media Advertisement Performance (Kaggle)."
+
+  - name: ads
+    description: "Individual ads belonging to campaigns, with ad-level attributes. Source: Social Media Advertisement Performance (Kaggle)."
+
+  - name: users
+    description: "Users exposed to ads, with demographic and profile attributes. Source: Social Media Advertisement Performance (Kaggle). Note: source file contained duplicate user_id rows, deduplicated downstream in stg_adtech__users."
+
+  - name: ad_events
+    description: "Event-level records of user interactions with ads (impressions, clicks, etc.). Source: Social Media Advertisement Performance (Kaggle)."
