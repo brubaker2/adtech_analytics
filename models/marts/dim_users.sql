@@ -10,10 +10,13 @@ user_ads as (
     select
         user_id,
         count(*) as total_events,
-        sum(case when event_type = 'Impression' then 1 else 0 end) as impressions,
-        sum(case when event_type = 'Click' then 1 else 0 end) as clicks,
-        sum(case when event_type = 'Like' then 1 else 0 end) as likes,
-        sum(case when event_type = 'Share' then 1 else 0 end) as shares,
+        {%- set event_types = ['Impression','Click','Like','Share'] -%}
+
+        {% for event_type in event_types %}
+
+            sum(case when event_type = '{{ event_type  }}' then 1 else 0 end) as {{ event_type | lower }}s,
+
+        {% endfor %}    
         count(distinct ad_id) as unique_ads
 from events
 group by user_id
