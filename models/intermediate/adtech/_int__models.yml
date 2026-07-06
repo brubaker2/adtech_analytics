@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: int_ad_performance
+    description: "measures engagement performance by ad"
+    tests:
+    - dbt_utils.expression_is_true:
+        arguments:
+         expression: "impressions + clicks + likes + shares + comments + purchases = total_events"
+    columns:
+      - name: ad_id
+        data_type: int64
+
+      - name: total_events
+        data_type: int64
+
+      - name: impressions
+        data_type: int64
+
+      - name: clicks
+        data_type: int64
+
+      - name: likes
+        data_type: int64
+
+      - name: shares
+        data_type: int64
+
+      - name: unique_users
+        data_type: int64
+
+      - name: first_event_at
+        data_type: timestamp
+
+      - name: last_event_at
+        data_type: timestamp

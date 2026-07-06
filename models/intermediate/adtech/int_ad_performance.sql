@@ -10,6 +10,8 @@ select
     sum(case when event_type = 'Click' then 1 else 0 end) as clicks,
     sum(case when event_type = 'Like' then 1 else 0 end) as likes,
     sum(case when event_type = 'Share' then 1 else 0 end) as shares,
+    sum(case when event_type = 'Comment' then 1 else 0 end) as comments,
+    sum(case when event_type = 'Purchase' then 1 else 0 end) as purchases,
     count(distinct user_id) as unique_users,
     min(event_at) as first_event_at,
     max(event_at) as last_event_at
