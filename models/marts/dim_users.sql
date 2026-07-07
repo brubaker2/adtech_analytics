@@ -10,7 +10,7 @@ user_ads as (
     select
         user_id,
         count(*) as total_events,
-        {%- set event_types = ['Impression','Click','Like','Share'] -%}
+        {%- set event_types = ['Impression','Click','Like','Share','Comment','Purchase'] -%}
 
         {% for event_type in event_types %}
 
@@ -29,6 +29,8 @@ final as (
         user_ads.clicks,
         user_ads.likes,
         user_ads.shares,
+        user_ads.comments,
+        user_ads.purchases,
         user_ads.unique_ads,
         users.user_gender,
         users.user_age,
