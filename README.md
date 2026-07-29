@@ -14,7 +14,7 @@ Four CSVs are loaded as seeds: `campaigns`, `ads`, `users`, `ad_events`. The bun
 
 ## Star schema
 
-- **fct_ad_events** — central fact, one row per ad interaction (Impression/Click/Like/Share).
+- **fct_ad_events** — central fact, one row per ad interaction (Impression/Click/Like/Share/Comment/Purchase).
 - **fct_ad_performance** — ad-level aggregate with CTR and engagement rate (built from `int_ad_performance`).
 - **dim_campaigns / dim_ads / dim_users** — conformed dimensions.
 
@@ -44,7 +44,7 @@ Or `dbt build` to do it all in dependency order.
 
 ## Interactive Dashboard
 
-An interactive Looker Studio dashboard built on the BigQuery mart layer,
+An interactive Data Studio dashboard built on the BigQuery mart layer,
 visualizing ad performance across platforms, creative types, and user
 engagement over time.
 
