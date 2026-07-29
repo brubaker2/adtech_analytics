@@ -50,7 +50,7 @@ engagement over time.
 
 **[View the live dashboard](https://datastudio.google.com/reporting/20ad89af-429e-4dad-9ccb-ac67d2b766d7)**
 
-![AdTech Analytics Dashboard](path/to/dashboard-screenshot.png)
+![AdTech Analytics Dashboard](assets/adtechAnalyticsDashboard.png)
 
 The dashboard reads directly from the `fct_ad_performance` and `fct_ad_events`
 marts and includes summary KPIs (impressions, clicks, CTR, engagement rate),
