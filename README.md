@@ -42,6 +42,21 @@ dbt docs generate && dbt docs serve
 
 Or `dbt build` to do it all in dependency order.
 
+## Interactive Dashboard
+
+An interactive Looker Studio dashboard built on the BigQuery mart layer,
+visualizing ad performance across platforms, creative types, and user
+engagement over time.
+
+**[View the live dashboard](https://lookerstudio.google.com/reporting/20ad89af-429e-4dad-9ccb-ac67d2b766d7)**
+
+![AdTech Analytics Dashboard](path/to/dashboard-screenshot.png)
+
+The dashboard reads directly from the `fct_ad_performance` and `fct_ad_events`
+marts and includes summary KPIs (impressions, clicks, CTR, engagement rate),
+performance breakdowns by platform and ad type, top-performing ads, and an
+event time series, with interactive date-range and platform filters.
+
 ## Notes
 
 - `event_type` accepted_values are set to Impression/Click/Like/Share — adjust in `_adtech__models.yml` if `dbt test` reveals other values.
